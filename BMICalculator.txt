@@ -23,7 +23,7 @@ public class BMICalculator {
         String categoryOfBMI = categoryOfBMI(bmi);
         System.out.println("BMI Category:The person is: " + categoryOfBMI);
 
-        scanner.close();
+        sc.close();
     }
 
 // create a function to calculate BMI that returns the value of BMI
