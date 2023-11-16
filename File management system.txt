@@ -1,0 +1,183 @@
+import java.util.*;
+// in this three classes namely Student,FeesManagementSystem and Main
+class Student {
+// consists of all the parameters like studentId, Student name, fees paid, late fees and getter to fetch the data
+
+    private int studentId;
+    private String name;
+    private double feesPaid;
+    private double lateFees;
+
+    public Student(int studentId, String name) {
+        this.studentId = studentId;
+        this.name = name;
+        this.feesPaid = 0;
+    }
+
+    public int getStudentId() {
+        return studentsId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getFeesPaid() {
+        return feesPaid;
+    }
+public int getLateFees() {
+        return getlateFees;
+
+    public void payFees(double fees) {
+        feesPaid += fees;
+    }
+
+    public double getRemainingFees(double totalFees) {
+        return totalFees - feesPaid;
+    }
+}
+
+ 
+
+class FeesManagementSystem {
+//consists of different methods like addStudent, displayStudents, recordFeePayment, checkRemainingFees, checkLateFees
+
+    private Map<Integer, Student> students; // Map to store student ID and corresponding Student object
+
+    public FeesManagementSystem() {
+        this.students = new HashMap<>();
+    }
+
+    public void addStudent(int studentId, String name) {
+        students.put(studentId, new Student(studentsId, name));
+    }
+
+    public void displayStudents() {
+        for (Student student : students.values()) {
+            System.out.println("Student ID: " + student.getStudentId() + ", Name: " + student.getName() + ", Fees Paid: " + student.getFeesPaid());
+        }
+    }
+
+    public void recordFeePayment(int studentId, double fees) {
+        Student student = students.get(studentId);
+        if (student != null) {
+            student.payFees(fees);
+            System.out.println("Payment recorded for Student ID: " + studentId + ", Name: " + student.getName());
+        } else {
+            System.out.println("Student not found with ID: " + studentId);
+        }
+    }
+
+    public void checkRemainingFees(int studentId, double totalFees) {
+        Student student = students.get(studentId);
+        if (student != null) {
+            double remainingFees = student.getRemainingFees(totalFees);
+            System.out.println("Remaining Fees for Student ID: " + studentId + ", Name: " + student.getName() + " is " + remainingFees);
+        } else {
+            System.out.println("Student not found with ID: " + studentId);
+        }
+    }
+public void checkLateFees(int studentId, totalFees, date){
+Student student = students.get(studentId);
+        if (student != null) {
+        if(date>10){
+        double lateFees=100;
+        double feesWithLateFees=(date-10)*lateFees;
+        System.out.println("The total fees with late fees is:"+feesWithLateFees);
+}
+else{
+System.out.println("No Late fees applicable");
+
+}
+}
+else{
+System.out.println("Student not found with ID: " + studentId);
+}
+}
+}
+
+
+public class Main {
+// main class which is used to call all the static and non-static method of class FileManagementSystem and Student
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        FeesManagementSystem feesSystem = new FeesManagementSystem();
+
+        feesSystem.addStudent(1, "Amit");
+        feesSystem.addStudent(2, "Aman");
+        feesSystem.addStudent(3, "Poonam");
+        feesSystem.addStudent(4, "Pooja");
+        feesSystem.addStudent(5, "Poo");
+        feesSystem.addStudent(6, "Punit");
+        feesSystem.addStudent(7, "Priyanka");
+        feesSystem.addStudent(8, "Kanika");
+        feesSystem.addStudent(10, "Kirti");
+        feesSystem.addStudent(11 "Shivansh");
+        feesSystem.addStudent(12, "Pony");
+        feesSystem.addStudent(13 "Shiva");
+        feesSystem.addStudent(14,"Neeta");
+        feesSystem.addStudent(15, Bharti");
+        feesSystem.addStudent(16, "Parmeshwar");
+        feesSystem.addStudent(17, "Pogo");
+
+        boolean exit = false;
+        while (!exit) {
+            System.out.println("Welcome to ");
+            System.out.println("Choose an option:");
+            System.out.println("1. Display Students");
+            System.out.println("2. Record Fee Payment");
+            System.out.println("3. Check Remaining Fees");
+            System.out.println("4.Check late fees if applicable");
+            System.out.println("5. Exit");
+
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    feesSystem.displayStudents();
+                    break;
+                case 2:
+                    System.out.println("Enter Student ID:");
+                    int studentId = sc.nextInt();
+
+                    System.out.println("Enter Fees Paid:");
+                    double feesPaid = sc.nextDouble();
+
+                    feesSystem.recordFeePayment(studentId, feesPaid);
+                    break;
+                case 3:
+                    System.out.println("Enter Student ID:");
+                    int stuId = sc.nextInt();
+
+                    System.out.println("Enter Total Fees:");
+                    double totalFees = sc.nextDouble();
+                    feesSystem.checkRemainingFees(stuId, totalFees);
+                    break;
+                case 4:
+                   
+//in a school if you pay fees after 10th of any month you have to pay a late fees to 100 per day
+                   
+                    int lateFees =sc.nextInt();
+                    System.out.println("Enter today's date);
+                    int date =sc.nextInt();
+
+                    System.out.println("Enter Student ID:");
+                    int stuId1 = sc.nextInt();
+
+                    System.out.println("Enter Total Fees:");
+                    int totalFee=sc.nextInt();
+
+                    feesSystem.checkLatefees(studId1, totalFees, date);
+                    break;
+                case 5:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a valid option.");
+            }
+        }
+
+        sc.close();
+    }
+}
+
