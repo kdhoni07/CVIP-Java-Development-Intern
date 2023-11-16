@@ -1,3 +1,6 @@
+// this code is written is notepad so the file should be saved with .java extension 
+// the command to run on terminal/command prompt using notepad is javac filename.java  -for compilation
+// java Classname -for execution
 import java.util.Scanner;
 
 public class BMICalculator {
